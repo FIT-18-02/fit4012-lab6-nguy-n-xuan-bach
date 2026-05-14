@@ -16,7 +16,10 @@ Lab này kế thừa ý tưởng từ Lab 3 DES Socket, nhưng nâng cấp theo 
 
 ## Team members
 
+## Team members
+
 - **Thành viên 1**: Nguyễn Xuân Bách - MSSV: 1871020067
+- **Thành viên 2**: Nguyễn Xuân Bách - MSSV: 1871020067
 
 ## Task division
 
