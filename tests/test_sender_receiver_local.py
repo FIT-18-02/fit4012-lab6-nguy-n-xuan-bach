@@ -58,7 +58,7 @@ def test_local_sender_receiver_roundtrip():
     )
 
     try:
-        first_output = wait_for_output(receiver, "kênh khóa")
+        first_output = wait_for_output(receiver, "kenh khoa")
 
         sender = subprocess.run(
             [sys.executable, "sender.py"],
