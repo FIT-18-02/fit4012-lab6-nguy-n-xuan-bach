@@ -1,6 +1,13 @@
+import sys
 import os
 import socket
 from pathlib import Path
+
+# Fix lỗi Unicode an toàn, không làm crash luồng CI
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
 
 from aes_socket_utils import (
     LENGTH_HEADER_SIZE,
@@ -55,7 +62,7 @@ def receive_data_packet() -> bytes:
 def main() -> None:
     lines = []
 
-    line = f"[*] Receiver đang lắng nghe kênh khóa tại {HOST}:{KEY_PORT}"
+    line = f"[*] Receiver dang lang nghe kenh khoa tai {HOST}:{KEY_PORT}"
     print(line)
     lines.append(line)
 
@@ -66,7 +73,7 @@ def main() -> None:
     print(line)
     lines.append(line)
 
-    line = f"[*] Receiver đang lắng nghe kênh dữ liệu tại {HOST}:{DATA_PORT}"
+    line = f"[*] Receiver dang lang nghe kenh du lieu tai {HOST}:{DATA_PORT}"
     print(line)
     lines.append(line)
 
@@ -75,7 +82,7 @@ def main() -> None:
     ciphertext = data_packet[LENGTH_HEADER_SIZE:]
 
     if len(ciphertext) != length:
-        raise ValueError("Ciphertext nhận được không khớp length header.")
+        raise ValueError("Ciphertext nhan duoc khong khop length header.")
 
     line = "[+] Đã nhận ciphertext."
     print(line)
